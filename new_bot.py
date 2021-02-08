@@ -39,10 +39,10 @@ def send_welcome(message):
                                 +"Qorako'l tumani, Ulug'bek ko'chasi, 32 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKqwPB). Mas'ul xodim: Abdullayev Og'abek. Telefon: +998 99 700-08-98\n"
                                 +"Jondor tumani, Istiqlol ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMCUr9A). Mas'ul xodim: Rayimberdiyev Dilshod. Telefon: +998 99 705-91-24\n"
                                 +" G'ijduvon tumani, XXI-asr ko'chasi, 5 uy (xarita) (https://yandex.com/maps/-/CCUIJRVicB). Mas'ul xodim: Rajabov Umarjon. Telefon: +998 90 329-92-95\n"
-                                +"Ромитан - Ромитан тумани, Бахористон кўчаси, 72-уй.\n"
-                                +"Қоровулбозор - Қоровулбозор туман, Геологлар кўчаси, 15-уй, 1-қават\n"
-                                +"Шофиркон - Шофиркон тумани, Мустақиллик кўчаси, 5-уй\n"
-                                +"Пешку - Пешку тумани, Узбекистон кўчаси, 31-уй, 1-қават"
+                                +"Romitan - Romitan tumani,Baxoriston ko'chasi , 72-uy.\n"
+                                +"QorovulBozor - Qorovulbozor tuman,Geologlar ko'chasi , 15-uy, 1-qavat\n"
+                                +"Shofirkon - Shofirkon tumani,Mustaqillik ko'chasi , 5-uy\n"
+                                +"Peshku - Peshku tumani, O'zbekiston ko'chasi , 31-uy, 1-qavat"
                                 )
 
 #reg/
