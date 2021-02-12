@@ -3,7 +3,7 @@ from telebot import types
 from string import Template
 bot=telebot.TeleBot('1648785365:AAE3i1nDRp9xjBtDkCrl9S2OmAoiCSZH_MI')
 user_dict = {}
-
+aa="salom"
 class User:
     def __init__(self,city):
         self.city=city
@@ -41,7 +41,7 @@ def send_welcome(message):
                                 +" G'ijduvon tumani, XXI-asr ko'chasi, 5 uy (xarita) (https://yandex.com/maps/-/CCUIJRVicB). Mas'ul xodim: Rajabov Umarjon. Telefon: +998 90 329-92-95\n"
                                 +"Romitan - Romitan tumani,Baxoriston ko'chasi , 72-uy.\n"
                                 +"QorovulBozor - Qorovulbozor tuman,Geologlar ko'chasi , 15-uy, 1-qavat\n"
-                                +"Shofirkon - Shofirkon tumani,Mustaqillik ko'chasi , 5-uy\n"
+                                +"Shofirkon - Shofirkon tumani,  Mustaqillik ko'chasi , 5-uy\n"
                                 +"Peshku - Peshku tumani, O'zbekiston ko'chasi , 31-uy, 1-qavat"
                                 )
 
