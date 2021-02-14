@@ -14,7 +14,7 @@ class User:
         for key in keys:
             self.key=None
 
-@bot.message_handler(commands=['help', 'start'])
+@bot.message_handler(commands=['help', 'start',] )
 def home(message):
         markup = types.InlineKeyboardMarkup()
         itembtn1=types.InlineKeyboardButton (text="🇺🇿Uzbek",callback_data="uz")
@@ -24,6 +24,7 @@ def home(message):
         msg = bot.send_message(message.chat.id, "🇺🇿O'zingizga kerakli tilni tanlang👇\n\n🇷🇺Выберите нужный язык.👇", reply_markup=markup)
        
 
+       
 @bot.callback_query_handler(func = lambda call: True)
 def print_all_commands(call):
 
@@ -249,7 +250,7 @@ def print_all_commands(call):
                         'soha': user.soha,
         
                         })
-                        
+                
     elif call.data=='ru':
 
                 
@@ -447,7 +448,7 @@ def print_all_commands(call):
 
                 msg = bot.send_message(chat_id, "Поздравляем с успешной регистрацией. \n Мы свяжемся с вами в ближайшее время.\n/start", reply_markup=markup)
 
-
+                
     
             def getRegData(user, title, name):
                 t = Template('$title *$name* \n  ФИО: *$FIO*\n Возраст: *$yosh* \n телефонный номер: *$phone* \n округ: *$tuman* \n Адрес места проживания: *$manzil* \n Информация: *$malumot* \n выбранное направление: *$soha*')
@@ -465,42 +466,40 @@ def print_all_commands(call):
                     'soha': user.soha,
         
                     })
-           
-
-            
-
-"""
-@bot.message_handler(content_types=["text"])
-def send_help_text(message):
-    markup = types.InlineKeyboardMarkup()
-    itembtn1=types.InlineKeyboardButton (text="🇺🇿Uzbek",callback_data="uz")
+            @bot.message_handler(content_types=["text"])
+            def send_help_text(message):
         
-    itembtn2=types.InlineKeyboardButton(text="🇷🇺Русский",callback_data="ru")
-    markup.add(itembtn1,itembtn2)
-    msg = bot.send_message(message.chat.id, "🇺🇿O'zingizga kerakli tilni tanlang👇\n\n🇷🇺Выберите нужный язык.👇", reply_markup=markup)
+                    markup = types.InlineKeyboardMarkup()
+                    itembtn1=types.InlineKeyboardButton (text="🇺🇿Uzbek",callback_data="uz")
+        
+                    itembtn2=types.InlineKeyboardButton(text="🇷🇺Русский",callback_data="ru")
+                    markup.add(itembtn1,itembtn2)
+                    msg = bot.send_message(message.chat.id, "🇺🇿O'zingizga kerakli tilni tanlang👇\n\n🇷🇺Выберите нужный язык.👇", reply_markup=markup)
        
-                
-@bot.message_handler(content_types=["photo"])
-def send_help_text(message):
-    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
-
-                
-@bot.message_handler(content_types=["video"])
-def send_help_text(message):
-    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
 
 
+       
+            @bot.message_handler(content_types=["photo"])
+            def send_help_text(message):
+                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+
                 
-@bot.message_handler(content_types=["audio"])
-def send_help_text(message):
-    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+            @bot.message_handler(content_types=["video"])
+            def send_help_text(message):
+                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+
+
+                
+            @bot.message_handler(content_types=["audio"])
+            def send_help_text(message):
+                bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
   
                 
-@bot.message_handler(content_types=['sticker'])
-def send_help_text(message):
-    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+            @bot.message_handler(content_types=['sticker'])
+            def send_help_text(message):
+                bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
 
-       """   
+        
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
