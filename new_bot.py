@@ -16,17 +16,18 @@ class User:
 
 @bot.message_handler(commands=['help', 'start'])
 def home(message):
-        markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
-        itembtn1=types.KeyboardButton("🇺🇿Uzbek")
+        markup = types.InlineKeyboardMarkup()
+        itembtn1=types.InlineKeyboardButton (text="🇺🇿Uzbek",callback_data="uz")
         
-        itembtn2=types.KeyboardButton("🇷🇺Русский")
+        itembtn2=types.InlineKeyboardButton(text="🇷🇺Русский",callback_data="ru")
         markup.add(itembtn1,itembtn2)
         msg = bot.send_message(message.chat.id, "🇺🇿O'zingizga kerakli tilni tanlang👇\n\n🇷🇺Выберите нужный язык.👇", reply_markup=markup)
        
 
-@bot.message_handler(func=lambda message: message.text == "🇺🇿Uzbek")
-def Uzbek_message(messagee):
-    
+@bot.callback_query_handler(func = lambda call: True)
+def print_all_commands(call):
+
+    if call.data == 'uz':
         
             
                 markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
@@ -35,7 +36,7 @@ def Uzbek_message(messagee):
                 itembtn3=types.KeyboardButton('Manzil')
     
                 markup.add(itembtn2,itembtn3) 
-                msg = bot.send_message(messagee.chat.id, 'Assalamu aleykum '+ messagee.from_user.first_name+'\n Jondor IT CENTERning rasmiy botiga xush kelibsiz', reply_markup=markup)
+                msg = bot.send_message(call.message.chat.id, 'Assalamu aleykum '+ call.message.from_user.first_name+'\n Jondor IT CENTERning rasmiy botiga xush kelibsiz', reply_markup=markup)
 
 
 
@@ -228,7 +229,7 @@ def Uzbek_message(messagee):
                     bot.send_message('-553286180', getRegData(user, 'Заявка от бота', bot.get_me().username), parse_mode="Markdown")
                     markup = types.ReplyKeyboardRemove(selective=False)
 
-                    msg = bot.send_message(chat_id, "Tabriklaymiz muvaffaqiyat registratsiyadan o'tingiz.\n Biz tez orada siz bilan bog'lanamiz.", reply_markup=markup)
+                    msg = bot.send_message(chat_id, "Tabriklaymiz muvaffaqiyat registratsiyadan o'tingiz.\n Biz tez orada siz bilan bog'lanamiz.\n/start", reply_markup=markup)
 
 
     
@@ -248,69 +249,20 @@ def Uzbek_message(messagee):
                         'soha': user.soha,
         
                         })
-                        """
-                @bot.message_handler(content_types=["text"])
-                def send_help_text(message):
-                    markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
-    
-                    itembtn2=types.KeyboardButton('Registratsiya')
-                    itembtn3=types.KeyboardButton('Manzil')
-    
-                    markup.add(itembtn2,itembtn3) 
-                    msg = bot.send_message(messagee.chat.id, "Kerakli bo'limni tanlang👇\nВыберите нужный раздел👇", reply_markup=markup)
-                
-                
-                @bot.message_handler(content_types=["text"])
-                def send_help_text(message):
-                    markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
-    
-                    itembtn2=types.KeyboardButton('Регистрация')
-                    itembtn3=types.KeyboardButton('Адрес')
-    
-                    markup.add(itembtn2,itembtn3) 
-                    msg = bot.send_message(messagee.chat.id, "Kerakli bo'limni tanlang👇\nВыберите нужный раздел👇", reply_markup=markup)
-
-            
-                
-                @bot.message_handler(content_types=["photo"])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+                        
+    elif call.data=='ru':
 
                 
-                @bot.message_handler(content_types=["video"])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
-
-
-                
-                @bot.message_handler(content_types=["audio"])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
-  
-                
-                @bot.message_handler(content_types=['sticker'])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
-
-                """
-
                
-@bot.message_handler(func=lambda message: message.text == "🇷🇺Русский")
-def Rus_message(messagee):
 
 
-
-            @bot.message_handler(content_types=["photo"])
-            def send_help_text(message):
-                bot.send_message(message.chat.id, 'Itimos yozing')
-        
-            markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
+            markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     
             itembtn2=types.KeyboardButton('Регистрация')
             itembtn3=types.KeyboardButton('Адрес')
     
             markup.add(itembtn2,itembtn3) 
-            msg = bot.send_message(messagee.chat.id, 'Привет '+ messagee.from_user.first_name+'\n Добро пожаловать в официальный бот IT CENTER', reply_markup=markup)
+            msg = bot.send_message(call.message.chat.id, 'Привет '+ call.message.from_user.first_name+'\n Добро пожаловать в официальный бот IT CENTER', reply_markup=markup)
 
             @bot.message_handler(func=lambda message: message.text == "Адрес")
             def send_welcome(message):
@@ -493,7 +445,7 @@ def Rus_message(messagee):
                 bot.send_message('-553286180', getRegData(user, 'Заявка от бота', bot.get_me().username), parse_mode="Markdown")
                 markup = types.ReplyKeyboardRemove(selective=False)
 
-                msg = bot.send_message(chat_id, "Поздравляем с успешной регистрацией. \n Мы свяжемся с вами в ближайшее время.", reply_markup=markup)
+                msg = bot.send_message(chat_id, "Поздравляем с успешной регистрацией. \n Мы свяжемся с вами в ближайшее время.\n/start", reply_markup=markup)
 
 
     
@@ -513,41 +465,42 @@ def Rus_message(messagee):
                     'soha': user.soha,
         
                     })
-            """
-            @bot.message_handler(content_types=["text"])
-            def send_help_text(message):
-                markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
-    
-                itembtn2=types.KeyboardButton('Регистрация')
-                itembtn3=types.KeyboardButton('Адрес')
-    
-                markup.add(itembtn2,itembtn3) 
-                msg = bot.send_message(messagee.chat.id, "Kerakli bo'limni tanlang👇\nВыберите нужный раздел👇", reply_markup=markup)
+           
 
             
-                @bot.message_handler(content_types=["photo"])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
 
-                @bot.message_handler(content_types=["video"])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+"""
+@bot.message_handler(content_types=["text"])
+def send_help_text(message):
+    markup = types.InlineKeyboardMarkup()
+    itembtn1=types.InlineKeyboardButton (text="🇺🇿Uzbek",callback_data="uz")
+        
+    itembtn2=types.InlineKeyboardButton(text="🇷🇺Русский",callback_data="ru")
+    markup.add(itembtn1,itembtn2)
+    msg = bot.send_message(message.chat.id, "🇺🇿O'zingizga kerakli tilni tanlang👇\n\n🇷🇺Выберите нужный язык.👇", reply_markup=markup)
+       
+                
+@bot.message_handler(content_types=["photo"])
+def send_help_text(message):
+    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+
+                
+@bot.message_handler(content_types=["video"])
+def send_help_text(message):
+    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
 
 
-                @bot.message_handler(content_types=["audio"])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
+                
+@bot.message_handler(content_types=["audio"])
+def send_help_text(message):
+    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
   
-                @bot.message_handler(content_types=['sticker'])
-                def send_help_text(message):
-                    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
-                """
+                
+@bot.message_handler(content_types=['sticker'])
+def send_help_text(message):
+    bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
 
-
-
-bot.enable_save_next_step_handlers(delay=2)
-bot.load_next_step_handlers()
-
+       """   
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
