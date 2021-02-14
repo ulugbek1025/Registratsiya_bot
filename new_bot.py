@@ -248,6 +248,7 @@ def Uzbek_message(messagee):
                         'soha': user.soha,
         
                         })
+                        """
                 @bot.message_handler(content_types=["text"])
                 def send_help_text(message):
                     markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
@@ -291,7 +292,7 @@ def Uzbek_message(messagee):
                 def send_help_text(message):
                     bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
 
-                
+                """
 
                
 @bot.message_handler(func=lambda message: message.text == "🇷🇺Русский")
@@ -512,7 +513,7 @@ def Rus_message(messagee):
                     'soha': user.soha,
         
                     })
-            
+            """
             @bot.message_handler(content_types=["text"])
             def send_help_text(message):
                 markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
@@ -540,7 +541,7 @@ def Rus_message(messagee):
                 @bot.message_handler(content_types=['sticker'])
                 def send_help_text(message):
                     bot.send_message(message.chat.id, 'Itimos yozing!!!\nПожалуйста напиши!!!')
-
+                """
 
 
 
