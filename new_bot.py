@@ -544,7 +544,8 @@ def Rus_message(messagee):
 
 
 
-
+bot.enable_save_next_step_handlers(delay=2)
+bot.load_next_step_handlers()
 
 
 if __name__ == '__main__':
