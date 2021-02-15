@@ -227,7 +227,7 @@ def print_all_commands(call):
        
                     bot.send_message(chat_id, getRegData(user, 'tg name', message.from_user.first_name), parse_mode="Markdown")
         
-                    bot.send_message('-553286180', getRegData(user, 'Заявка от бота', bot.get_me().username), parse_mode="Markdown")
+                    bot.send_message('-1001466284053', getRegData(user, 'Заявка от бота', bot.get_me().username), parse_mode="Markdown")
                     markup = types.ReplyKeyboardRemove(selective=False)
 
                     msg = bot.send_message(chat_id, "Tabriklaymiz muvaffaqiyat registratsiyadan o'tingiz.\n Biz tez orada siz bilan bog'lanamiz.\n/start", reply_markup=markup)
@@ -443,7 +443,7 @@ def print_all_commands(call):
        
                 bot.send_message(chat_id, getRegData(user, 'tg name', message.from_user.first_name), parse_mode="Markdown")
         
-                bot.send_message('-553286180', getRegData(user, 'Заявка от бота', bot.get_me().username), parse_mode="Markdown")
+                bot.send_message('-1001466284053', getRegData(user, 'Заявка от бота', bot.get_me().username), parse_mode="Markdown")
                 markup = types.ReplyKeyboardRemove(selective=False)
 
                 msg = bot.send_message(chat_id, "Поздравляем с успешной регистрацией. \n Мы свяжемся с вами в ближайшее время.\n/start", reply_markup=markup)
