@@ -141,7 +141,7 @@ def print_all_commands(call):
                         itembnt5=types.KeyboardButton('Olot')
                         itembnt6=types.KeyboardButton('Peshku')
                         itembnt7=types.KeyboardButton('Gijduvon')
-                        itembnt8=types.KeyboardButton('Rominat')
+                        itembnt8=types.KeyboardButton('Romitan')
                         itembnt9=types.KeyboardButton('Vobkent')
                         itembnt10=types.KeyboardButton('Qaravulbozor')
                         itembnt11=types.KeyboardButton('Kogon sh')
@@ -315,7 +315,7 @@ def print_all_commands(call):
                     user = user_dict[chat_id]
                     user.FIO = message.text
         
-                    msg = bot.send_message(chat_id, 'Введите возраст')
+                    msg = bot.send_message(chat_id, 'Введите возвраст')
                     bot.register_next_step_handler(msg, process_yosh_step)
 
                 except Exception as e:
