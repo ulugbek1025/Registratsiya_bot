@@ -150,7 +150,7 @@ def print_all_commands(call):
                         msg = bot.send_message(chat_id, 'Tumanini tanlang', reply_markup=markup)
                         bot.register_next_step_handler(msg, process_Tuman_step)
                     except Exception as e:
-                        msg = bot.reply_to(message, 'Iltimos raqamingizni yuboring')
+                        msg = bot.reply_to(message, 'Iltimos raqamingizni yuboring!!!')
                         bot.register_next_step_handler(msg, process_phone_step)
 
 
