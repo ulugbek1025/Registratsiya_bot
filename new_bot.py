@@ -48,7 +48,7 @@ def print_all_commands(call):
                 def send_welcome(message):
                     msg = bot.reply_to(message, "Buxoro shahar, Jomiy ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMOuw2C). Mas'ul xodim: Bo'ratov Baxtiyor. Telefon: +998 93 685-50-97\n "
                                     +"Buxoro tumani, Buxoro shossesi, 5 uy (xarita) (https://yandex.uz/maps/-/CCUIJRaC3B). Mas'ul xodim: Saidov Abdurahmon. Telefon: +998 91 406-63-39\n"
-                                    +"Kogon shahar, Buxoro shossesi, 12 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKaywA). Mas'ul xodim: Qayumov Shahriyor. Telefon: +998 93 681-06-18\n"
+                                    +"Kogon shahar, Buxoro shossesi, 12 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKaywA). Mas'ul xodim:   Qayumov Shahriyor. Telefon: +998 93 681-06-18\n"
                                     +"Olot tumani, Olot ko'chasi, 71 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKegkC). Mas'ul xodim: Rustamov Jo'shqin. Telefon: +998 94 120-69-66\n"
                                     +"Qorako'l tumani, Ulug'bek ko'chasi, 32 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKqwPB). Mas'ul xodim:Rayimberdiyev Dilshod. Telefon: +998 99 705-91-24\n"
                                     +"Jondor tumani, Istiqlol ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMCUr9A). Mas'ul xodim: G'ulomov Ulug'bek. Telefon: +998 99 5937825\n"
