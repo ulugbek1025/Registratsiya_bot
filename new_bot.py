@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
 from string import Template
-bot=telebot.TeleBot('1648785365:AAE3i1nDRp9xjBtDkCrl9S2OmAoiCSZH_MI')
+bot=telebot.TeleBot('1677057174:AAFVrtUo3x9qNh-kJA62jwghi3hX1oqFQqA')
 user_dict = {}
 class User:
     def __init__(self,city):
@@ -50,8 +50,8 @@ def print_all_commands(call):
                                     +"Buxoro tumani, Buxoro shossesi, 5 uy (xarita) (https://yandex.uz/maps/-/CCUIJRaC3B). Mas'ul xodim: Saidov Abdurahmon. Telefon: +998 91 406-63-39\n"
                                     +"Kogon shahar, Buxoro shossesi, 12 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKaywA). Mas'ul xodim: Qayumov Shahriyor. Telefon: +998 93 681-06-18\n"
                                     +"Olot tumani, Olot ko'chasi, 71 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKegkC). Mas'ul xodim: Rustamov Jo'shqin. Telefon: +998 94 120-69-66\n"
-                                    +"Qorako'l tumani, Ulug'bek ko'chasi, 32 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKqwPB). Mas'ul xodim: Abdullayev Og'abek. Telefon: +998 99 700-08-98\n"
-                                    +"Jondor tumani, Istiqlol ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMCUr9A). Mas'ul xodim: Rayimberdiyev Dilshod. Telefon: +998 99 705-91-24\n"
+                                    +"Qorako'l tumani, Ulug'bek ko'chasi, 32 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKqwPB). Mas'ul xodim:Rayimberdiyev Dilshod. Telefon: +998 99 705-91-24\n"
+                                    +"Jondor tumani, Istiqlol ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMCUr9A). Mas'ul xodim: G'ulomov Ulug'bek. Telefon: +998 99 5937825\n"
                                     +" G'ijduvon tumani, XXI-asr ko'chasi, 5 uy (xarita) (https://yandex.com/maps/-/CCUIJRVicB). Mas'ul xodim: Rajabov Umarjon. Telefon: +998 90 329-92-95\n"
                                     +"Romitan - Romitan tumani,Baxoriston ko'chasi , 72-uy.\n"
                                     +"QorovulBozor - Qorovulbozor tuman,Geologlar ko'chasi , 15-uy, 1-qavat\n"
