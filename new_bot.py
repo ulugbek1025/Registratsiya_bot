@@ -34,9 +34,9 @@ def print_all_commands(call):
                 markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
     
                 itembtn2=types.KeyboardButton('Registratsiya')
-                itembtn3=types.KeyboardButton('Manzil')
+                itembtn1=types.KeyboardButton('Biz haqimizda')
     
-                markup.add(itembtn2,itembtn3) 
+                markup.add(itembtn2,itembtn1) 
                 msg = bot.send_message(call.message.chat.id, 'Assalamu aleykum '+ call.message.from_user.first_name+'\n Jondor IT CENTERning rasmiy botiga xush kelibsiz', reply_markup=markup)
 
 
@@ -44,22 +44,10 @@ def print_all_commands(call):
 
 
 
-                @bot.message_handler(func=lambda message: message.text == "Manzil")
+                @bot.message_handler(func=lambda message: message.text=="Biz haqimizda")
                 def send_welcome(message):
-                    msg = bot.reply_to(message, "Buxoro shahar, Jomiy ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMOuw2C). Mas'ul xodim: Bo'ratov Baxtiyor. Telefon: +998 93 685-50-97\n "
-                                    +"Buxoro tumani, Buxoro shossesi, 5 uy (xarita) (https://yandex.uz/maps/-/CCUIJRaC3B). Mas'ul xodim: Saidov Abdurahmon. Telefon: +998 91 406-63-39\n"
-                                    +"Kogon shahar, Buxoro shossesi, 12 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKaywA). Mas'ul xodim:   Qayumov Shahriyor. Telefon: +998 93 681-06-18\n"
-                                    +"Olot tumani, Olot ko'chasi, 71 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKegkC). Mas'ul xodim: Rustamov Jo'shqin. Telefon: +998 94 120-69-66\n"
-                                    +"Qorako'l tumani, Ulug'bek ko'chasi, 32 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKqwPB). Mas'ul xodim:Rayimberdiyev Dilshod. Telefon: +998 99 705-91-24\n"
-                                    +"Jondor tumani, Istiqlol ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMCUr9A). Mas'ul xodim: G'ulomov Ulug'bek. Telefon: +998 99 5937825\n"
-                                    +" G'ijduvon tumani, XXI-asr ko'chasi, 5 uy (xarita) (https://yandex.com/maps/-/CCUIJRVicB). Mas'ul xodim: Rajabov Umarjon. Telefon: +998 90 329-92-95\n"
-                                    +"Romitan - Romitan tumani,Baxoriston ko'chasi , 72-uy.\n"
-                                    +"QorovulBozor - Qorovulbozor tuman,Geologlar ko'chasi , 15-uy, 1-qavat\n"
-                                    +"Shofirkon - Shofirkon tumani,Mustaqillik ko'chasi , 5-uy\n"
-                                    +"Peshku - Peshku tumani, O'zbekiston ko'chasi , 31-uy, 1-qavat"
-                                    )
+                    msg=bot.reply_to(message,'nunununununununun')
 
-#reg/
 
                 @bot.message_handler(func=lambda message: message.text == "Registratsiya")
                 def user_reg(message):
@@ -260,27 +248,12 @@ def print_all_commands(call):
             markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     
             itembtn2=types.KeyboardButton('Регистрация')
-            itembtn3=types.KeyboardButton('Адрес')
+            
     
             markup.add(itembtn2,itembtn3) 
             msg = bot.send_message(call.message.chat.id, 'Привет '+ call.message.from_user.first_name+'\n Добро пожаловать в официальный бот IT CENTER', reply_markup=markup)
 
-            @bot.message_handler(func=lambda message: message.text == "Адрес")
-            def send_welcome(message):
-                msg = bot.reply_to(message, "Бухара, улица Джами, дом 1 (карта) (https://yandex.ru/maps/-/CCUIMOuw2C). Ответственный тренинг: Буратов Бахтиёр. Телефон: +998 93 685-50-97 \n "
-                                +" «Бухарский район, Бухарское шоссе, дом 5 (карта) (https://yandex.uz/maps/-/CCUIJRaC3B). Ответственная деятельность: Саидов Абдурахмон. Телефон: +998 91 406-63-39 \n"
-                                + "Г. Каган, Бухарское шоссе, дом 12 (карта) (https://yandex.uz/maps/-/CCQ~YKaywA). Ведет: Каюмов Шахриер. Телефон: +998 93 681-06-18 \n"
-                                + "Алатский район, улица Алят, 71 (карта) (https://yandex.uz/maps/-/CCQ~YKegkC). Организатор: Рустамов Джошкин. Телефон: +998 94 120-69-66 \n"
-                                + "Каракульский район, улица Улугбека, 32 (карта) (https://yandex.uz/maps/-/CCQ~YKqwPB). Ответственное обучение: Абдуллаев Огабек. Телефон: + 998 99 700-08-98 \n"
-                                + "Жондорский район, улица Истиклол, дом 1 (карта) (https://yandex.com/maps/-/CCUIMCUr9A). Ответственная организация: Райимбердиев Дильшод. Телефон: +998 99 705-91-24 \n "
-                                + "Гиждуванский район, улица XXI век, дом 5 (карта) (https://yandex.com/maps/-/CCUIJRVicB). Ответственная работа: Раджабов Умарджон. Телефон: +998 90 329-92-95 \n"
-                                + "Ромитан - Ромитанский район, улица Бахористан, 72. \n"
-                                + "ГоровулБозор - Горовулбозорский район, ул. Геологлар, 15, 1 эт \n"
-                                + "Шофиркон - Шафирканский район, улица Мустакиллик, дом 5 \n"
-                                + "Пешку - Пешкунский район, улица Узбекистана, 31, 1 этаж"
-                                )
-
-#reg/
+           
 
             @bot.message_handler(func=lambda message: message.text == "Регистрация")
             def user_reg(message):
