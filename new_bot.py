@@ -34,32 +34,15 @@ def print_all_commands(call):
                 markup = types.ReplyKeyboardMarkup(one_time_keyboard=False, resize_keyboard=True)
     
                 itembtn2=types.KeyboardButton('Registratsiya')
-                itembtn3=types.KeyboardButton('Manzil')
+                
     
-                markup.add(itembtn2,itembtn3) 
-                msg = bot.send_message(call.message.chat.id, 'Assalamu aleykum '+ call.message.from_user.first_name+'\n Jondor IT CENTERning rasmiy botiga xush kelibsiz', reply_markup=markup)
+                markup.add(itembtn2) 
+                msg = bot.send_message(call.message.chat.id, 'Assalamu aleykum '+ call.message.from_user.first_name+'\n', reply_markup=markup)
 
 
 
 
 
-
-                @bot.message_handler(func=lambda message: message.text == "Manzil")
-                def send_welcome(message):
-                    msg = bot.reply_to(message, "Buxoro shahar, Jomiy ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMOuw2C). Mas'ul xodim: Bo'ratov Baxtiyor. Telefon: +998 93 685-50-97\n "
-                                    +"Buxoro tumani, Buxoro shossesi, 5 uy (xarita) (https://yandex.uz/maps/-/CCUIJRaC3B). Mas'ul xodim: Saidov Abdurahmon. Telefon: +998 91 406-63-39\n"
-                                    +"Kogon shahar, Buxoro shossesi, 12 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKaywA). Mas'ul xodim:   Qayumov Shahriyor. Telefon: +998 93 681-06-18\n"
-                                    +"Olot tumani, Olot ko'chasi, 71 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKegkC). Mas'ul xodim: Rustamov Jo'shqin. Telefon: +998 94 120-69-66\n"
-                                    +"Qorako'l tumani, Ulug'bek ko'chasi, 32 uy (xarita) (https://yandex.uz/maps/-/CCQ~YKqwPB). Mas'ul xodim:Rayimberdiyev Dilshod. Telefon: +998 99 705-91-24\n"
-                                    +"Jondor tumani, Istiqlol ko'chasi, 1 uy (xarita) (https://yandex.com/maps/-/CCUIMCUr9A). Mas'ul xodim: G'ulomov Ulug'bek. Telefon: +998 99 5937825\n"
-                                    +" G'ijduvon tumani, XXI-asr ko'chasi, 5 uy (xarita) (https://yandex.com/maps/-/CCUIJRVicB). Mas'ul xodim: Rajabov Umarjon. Telefon: +998 90 329-92-95\n"
-                                    +"Romitan - Romitan tumani,Baxoriston ko'chasi , 72-uy.\n"
-                                    +"QorovulBozor - Qorovulbozor tuman,Geologlar ko'chasi , 15-uy, 1-qavat\n"
-                                    +"Shofirkon - Shofirkon tumani,Mustaqillik ko'chasi , 5-uy\n"
-                                    +"Peshku - Peshku tumani, O'zbekiston ko'chasi , 31-uy, 1-qavat"
-                                    )
-
-#reg/
 
                 @bot.message_handler(func=lambda message: message.text == "Registratsiya")
                 def user_reg(message):
@@ -67,7 +50,7 @@ def print_all_commands(call):
                     itembnt1=types.KeyboardButton('erkak')
                     itembnt2=types.KeyboardButton('ayol')
                     markup.add(itembnt1,itembnt2)
-                    msg = bot.send_message(message.chat.id, 'Jinsingiz', reply_markup=markup)
+                    msg = bot.send_message(message.chat.id, 'Jinsingizni tanlang:', reply_markup=markup)
                     bot.register_next_step_handler(msg, process_jins_step)
     
     
@@ -96,7 +79,7 @@ def print_all_commands(call):
                         user = user_dict[chat_id]
                         user.FIO = message.text
         
-                        msg = bot.send_message(chat_id, 'Yosh kiriting')
+                        msg = bot.send_message(chat_id, 'Yoshingiz nechida?')
                         bot.register_next_step_handler(msg, process_yosh_step)
 
                     except Exception as e:
@@ -113,9 +96,10 @@ def print_all_commands(call):
                         user = user_dict[chat_id]
                         user.yosh = message.text
                         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-                        itembnt1=types.KeyboardButton('Raqamingizni yuboring',request_contact=True)
+                        itembnt1=types.KeyboardButton('📲 Telefon raqamimni yuborish',request_contact=True)
                         markup.add(itembnt1)
-                        msg = bot.send_message(message.chat.id, 'Raqamingizni yuboring', reply_markup=markup)
+                        msg = bot.send_message(message.chat.id, text="<b>Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
+                                                                "Buning uchun  Telefon raqamimni yuborish tugmasini bosing</b>", reply_markup=markup)
                         bot.register_next_step_handler(msg, process_phone_step)
                     except Exception as e:
                         msg = bot.reply_to(message, 'Iltimos yoshingizni qaytadan kiriting')
@@ -147,10 +131,11 @@ def print_all_commands(call):
                         itembnt11=types.KeyboardButton('Kogon sh')
                         markup.add(itembnt1,itembnt2,itembnt3,itembnt4,itembnt5,itembnt6,itembnt7,itembnt8,itembnt9,itembnt10,itembnt11)
 
-                        msg = bot.send_message(chat_id, 'Tumanini tanlang', reply_markup=markup)
+                        msg = bot.send_message(chat_id,'Siz qaysi shahar/tumandansiz?', reply_markup=markup)
                         bot.register_next_step_handler(msg, process_Tuman_step)
                     except Exception as e:
-                        msg = bot.reply_to(message, 'Iltimos raqamingizni yuboring!!!')
+                        msg = bot.reply_to(message, text="Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
+                                                    "Buning uchun *bold*📲 Telefon raqamimni yuborish tugmasini bosing.")
                         bot.register_next_step_handler(msg, process_phone_step)
 
 
@@ -188,7 +173,7 @@ def print_all_commands(call):
                         itembnt5=types.KeyboardButton('Nafaqada')
                         markup.add(itembnt1,itembnt2,itembnt3,itembnt4,itembnt5)
 
-                        msg = bot.send_message(chat_id, "Ma'lumotingiz qanday??", reply_markup=markup)
+                        msg = bot.send_message(chat_id, "Ma'lumotingiz:", reply_markup=markup)
                         bot.register_next_step_handler(msg, process_malumot_step)
                     except Exception as e:
                         bot.reply_to(message, 'ooops!!')
