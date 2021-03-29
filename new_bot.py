@@ -45,18 +45,8 @@ def print_all_commands(call):
 
                 @bot.message_handler(func=lambda message: message.text == 'Biz haqimizda')
                 def send_welcome(message):
-                    msg = bot.reply_to(message, "2019-yil 20-noyabr kuni Oʻzbekiston Respublikasi\n"+
-                                                "Prezidenti Shavkat Mirziyoyev IT Parkda boʻlib, yangi\n"+
-                                                "bosqich qurilishi uchun ilk ramziy toshni qoʻydi.\n"+ 
-                                                "Iqtisodiyotimizning barqarorligi, barcha sohalarning\n"+
-                                                "sifatli va samarali ishlashi, aholi hayotining qulayligi\n"
-                                                "axborot texnologiyalariga bogʻliq. Shuning uchun ushbu soha\n"+
-                                                "uchun yanada keng imkoniyatlarni, zarur infratuzilmani yaratish,\n"+
-                                                "mutaxassislarni ragʻbatlantirish, qobiliyatli yoshlarni tarbiyalash\n"+
-                                                "kerak”, - dedi Shavkat Mirziyoyev.\n"+
-                                                "Bizning Buxoro viloyati kontaktimiz +998936855097\n"+
-                                                "Telegram: @IT_PARK_BBB")
-
+                    msg = bot.reply_to(message, "https://telegra.ph/FAQ-02-09-3")
+                        
 
                 @bot.message_handler(func=lambda message: message.text == "Registratsiya")
                 def user_reg(message):
