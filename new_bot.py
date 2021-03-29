@@ -55,7 +55,7 @@ def print_all_commands(call):
                                                 "mutaxassislarni ragʻbatlantirish, qobiliyatli yoshlarni tarbiyalash\n"+
                                                 "kerak”, - dedi Shavkat Mirziyoyev.\n"+
                                                 "Bizning Buxoro viloyati kontaktimiz +998936855097\n"+
-                                                "Telegram: IT_PARK_BBB")
+                                                "Telegram: @IT_PARK_BBB")
 
 
                 @bot.message_handler(func=lambda message: message.text == "Registratsiya")
@@ -112,8 +112,8 @@ def print_all_commands(call):
                         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
                         itembnt1=types.KeyboardButton('📲 Telefon raqamimni yuborish',request_contact=True)
                         markup.add(itembnt1)
-                        msg = bot.send_message(message.chat.id, text="<b>Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
-                                                                "Buning uchun  Telefon raqamimni yuborish tugmasini bosing</b>", reply_markup=markup)
+                        msg = bot.send_message(message.chat.id, text="Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
+                                                                "Buning uchun  Telefon raqamimni yuborish tugmasini bosing", reply_markup=markup)
                         bot.register_next_step_handler(msg, process_phone_step)
                     except Exception as e:
                         msg = bot.reply_to(message, 'Iltimos yoshingizni qaytadan kiriting')
@@ -132,6 +132,7 @@ def print_all_commands(call):
                         user.phone = message.contact.phone_number
         
                         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+                        itembnt3=types.KeyboardButton('Buxoro sh')
                         itembnt1=types.KeyboardButton('Jondor')
                         itembnt2=types.KeyboardButton('Buxoro')
                         itembnt3=types.KeyboardButton('Buxoro sh')
@@ -149,7 +150,7 @@ def print_all_commands(call):
                         bot.register_next_step_handler(msg, process_Tuman_step)
                     except Exception as e:
                         msg = bot.reply_to(message, text="Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
-                                                    "Buning uchun *bold*📲 Telefon raqamimni yuborish tugmasini bosing.")
+                                                    "Buning uchun 📲 Telefon raqamimni yuborish tugmasini bosing.")
                         bot.register_next_step_handler(msg, process_phone_step)
 
 
@@ -328,9 +329,10 @@ def print_all_commands(call):
                     user = user_dict[chat_id]
                     user.yosh = message.text
                     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-                    itembnt1=types.KeyboardButton('Отправьте свой номер',request_contact=True)
+                    itembnt1=types.KeyboardButton('📲 Отправить мой контакт',request_contact=True)
                     markup.add(itembnt1)
-                    msg = bot.send_message(message.chat.id, 'Отправьте свой номер', reply_markup=markup)
+                    msg = bot.send_message(message.chat.id, 'Отправьте свой номер в виде контакта\n\n'+
+                                                            'Для этого нажмите на кнопку 📲 Отправить мой контакт', reply_markup=markup)
                     bot.register_next_step_handler(msg, process_phone_step)
                 except Exception as e:
                     msg = bot.reply_to(message, 'Пожалуйста, введите свой возраст правильно')
@@ -347,9 +349,10 @@ def print_all_commands(call):
                     user.phone = message.contact.phone_number
         
                     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
+                    itembnt3=types.KeyboardButton('г.Бухоро ')
                     itembnt1=types.KeyboardButton('Жондор р-н')
                     itembnt2=types.KeyboardButton('Бухоро р-н')
-                    itembnt3=types.KeyboardButton('г.Бухоро ')
+                    
                     itembnt4=types.KeyboardButton("Каракульр-н ")
                     itembnt5=types.KeyboardButton('Олот р-н')
                     itembnt6=types.KeyboardButton('Пешку р-н')
@@ -363,7 +366,8 @@ def print_all_commands(call):
                     msg = bot.send_message(chat_id, 'Выберите район', reply_markup=markup)
                     bot.register_next_step_handler(msg, process_Tuman_step)
                 except Exception as e:
-                    msg = bot.reply_to(message, 'Отправьте свой номер')
+                    msg = bot.reply_to(message, 'Отправьте свой номер в виде контакта\n\n'+
+                                                'Для этого нажмите на кнопку 📲 Отправить мой контакт')
                     bot.register_next_step_handler(msg, process_phone_step)
 
 
