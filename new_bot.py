@@ -113,7 +113,7 @@ def print_all_commands(call):
                         itembnt1=types.KeyboardButton('📲 Telefon raqamimni yuborish',request_contact=True)
                         markup.add(itembnt1)
                         msg = bot.send_message(message.chat.id, text="Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
-                                                                "Buning uchun  Telefon raqamimni yuborish tugmasini bosing", reply_markup=markup)
+                                                                "Buning uchun  📲Telefon raqamimni yuborish tugmasini bosing", reply_markup=markup)
                         bot.register_next_step_handler(msg, process_phone_step)
                     except Exception as e:
                         msg = bot.reply_to(message, 'Iltimos yoshingizni qaytadan kiriting')
