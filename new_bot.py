@@ -45,7 +45,7 @@ def print_all_commands(call):
 
                 @bot.message_handler(func=lambda message: message.text == 'Biz haqimizda')
                 def send_welcome(message):
-                    msg = bot.reply_to(message, "https://telegra.ph/FAQ-02-09-3")
+                    msg = bot.reply_to(message, "https://telegra.ph/IT-PARK-BUXORO-03-29")
                         
 
                 @bot.message_handler(func=lambda message: message.text == "Registratsiya")
@@ -257,16 +257,7 @@ def print_all_commands(call):
 
             @bot.message_handler(func=lambda message: message.text == "O нас")
             def send_welcome(message):
-                msg = bot.reply_to(message, "20 ноября 2019 года Президент Республики\n"+
-                "Узбекистан Шавкат Мирзиёев посетил IT Park и заложил символический \n"+
-                "первый камень строительства нового этапа. «Устойчивость нашей экономики,\n"+ 
-                "качественная и эффективная работа всех сфер, удобство жизни населения\n"+
-                "зависят от информационных технологий. Поэтому следует создавать еще \n"+
-                "более широкие возможности для этой сферы, необходимую инфраструктуру,\n"+
-                "стимулировать специалистов, воспитывать способную молодежь»,\n"+
-                "- сказал Шавкат Мирзиёев.\n"+
-                "Контакты нашего учебного центра в Бухаре +998943229891\n"+
-                "Telegram: @flying4152" )
+                msg = bot.reply_to(message, 'https://telegra.ph/IT-PARK-BUHARA-03-29' )
 
 #reg/
 
