@@ -241,7 +241,7 @@ def print_all_commands(call):
             def process_FIO_step(message):
    
                 try:
-                     str(message.text)
+                    str(message.text)
                     chat_id = message.chat.id
                     user = user_dict[chat_id]
                     user.FIO = message.text
