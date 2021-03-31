@@ -7,8 +7,8 @@ class User:
     def __init__(self,city):
         self.city=city
 
-        keys = ['jins','FIO','yosh','phone',
-                'tuman','manzil','malumot',
+        keys = ['jins','FIO','phone',
+                'tuman',
                 'soha']
 
         for key in keys:
@@ -71,34 +71,22 @@ def print_all_commands(call):
                         bot.register_next_step_handler(msg, process_FIO_step)
                     
                     else:
-                        msg = bot.reply_to(message, 'Iltimos qaytadan tanlang' )
+                        msg = bot.reply_to(message, 'Iltimos qaytadan tanlang!' )
                         bot.register_next_step_handler(msg, process_jins_step)
 
 
 
+              
+
+
                 def process_FIO_step(message):
-                    try:
+   
+                    try :
+
                         str(message.text)
                         chat_id = message.chat.id
                         user = user_dict[chat_id]
                         user.FIO = message.text
-        
-                        msg = bot.send_message(chat_id, 'Yoshingiz nechida?')
-                        bot.register_next_step_handler(msg, process_yosh_step)
-
-                    except Exception as e:
-                        bot.reply_to(message, 'ooops!!')
-
-
-
-                def process_yosh_step(message):
-   
-                    try :
-
-                        int(message.text)
-                        chat_id = message.chat.id
-                        user = user_dict[chat_id]
-                        user.yosh = message.text
                         markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
                         itembnt1=types.KeyboardButton('📲 Telefon raqamimni yuborish',request_contact=True)
                         markup.add(itembnt1)
@@ -107,7 +95,7 @@ def print_all_commands(call):
                         bot.register_next_step_handler(msg, process_phone_step)
                     except Exception as e:
                         msg = bot.reply_to(message, 'Iltimos yoshingizni qaytadan kiriting')
-                        bot.register_next_step_handler(msg, process_yosh_step)
+                        bot.register_next_step_handler(msg, process_FIO_step)
  
     
 
@@ -137,7 +125,7 @@ def print_all_commands(call):
                         markup.add(itembnt1,itembnt2,itembnt3,itembnt4,itembnt5,itembnt6,itembnt7,itembnt8,itembnt9,itembnt10,itembnt11)
 
                         msg = bot.send_message(chat_id,'Siz qaysi shahar/tumandansiz?', reply_markup=markup)
-                        bot.register_next_step_handler(msg, process_Tuman_step)
+                        bot.register_next_step_handler(msg, process_malumot_step)
                     except Exception as e:
                         msg = bot.reply_to(message, text="Telegram yoqilgan telefon raqamingizni kontakt ko'rinishida yuboring\n"+
                                                     "Buning uchun 📲 Telefon raqamimni yuborish tugmasini bosing.")
@@ -145,45 +133,7 @@ def print_all_commands(call):
 
 
 
-                def process_Tuman_step(message):
-                    try:
-                        str(message.text)
-                        chat_id = message.chat.id
-                        user = user_dict[chat_id]
-                        user.tuman = message.text
-                        markup = types.ReplyKeyboardRemove(selective=False)
-                        msg = bot.send_message(message.chat.id, 'Yashash manzilini kiriting ', reply_markup=markup)
-    
-        
-                        bot.register_next_step_handler(msg, process_manzil_step)
-
-                    except Exception as e:
-                        bot.reply_to(message, 'ooops!!')
-
-
-
-
-                def process_manzil_step(message):
-                    try:
-                        str(message.text)
-                        chat_id = message.chat.id
-                        user = user_dict[chat_id]
-                        user.manzil = message.text
-        
-                        markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
-                        itembnt1=types.KeyboardButton("O'quvchi")
-                        itembnt2=types.KeyboardButton('Talaba')
-                        itembnt3=types.KeyboardButton('Ishchi')
-                        itembnt4=types.KeyboardButton('Ishsiz')
-                        itembnt5=types.KeyboardButton('Nafaqada')
-                        markup.add(itembnt1,itembnt2,itembnt3,itembnt4,itembnt5)
-
-                        msg = bot.send_message(chat_id, "Ma'lumotingiz:", reply_markup=markup)
-                        bot.register_next_step_handler(msg, process_malumot_step)
-                    except Exception as e:
-                        bot.reply_to(message, 'ooops!!')
-
-
+               
 
 
                 def process_malumot_step(message):
@@ -191,7 +141,7 @@ def print_all_commands(call):
                         str(message.text)
                         chat_id = message.chat.id
                         user = user_dict[chat_id]
-                        user.malumot = message.text
+                        user.tuman = message.text
         
                         markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
                         itembnt1=types.KeyboardButton('Kompyuter savodxonligi')
@@ -225,18 +175,17 @@ def print_all_commands(call):
 
     
                 def getRegData(user, title, name):
-                    t = Template('$title *$name* \n  FIO: *$FIO*\n Yosh: *$yosh* \n Raqam: *$phone* \n tuman: *$tuman* \n Yashash manzil: *$manzil* \n Malumoti: *$malumot* \n Tanlagan sohasi: *$soha*')
+                    t = Template('$title *$name* \n  FIO: *$FIO*\n  Raqam: *$phone* \n tuman: *$tuman* \n  Tanlagan sohasi: *$soha*')
 
                     return t.substitute({
                         'title': title,
                         'name': name,
         
                         'FIO':user.FIO,
-                        'yosh': user.yosh,
+                        
                         'phone': user.phone,
                         'tuman': user.tuman,
-                        'manzil': user.manzil,
-                        'malumot': user.malumot,
+                       
                         'soha': user.soha,
         
                         })
