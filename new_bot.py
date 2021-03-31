@@ -38,7 +38,7 @@ def print_all_commands(call):
                 
     
                 markup.add(itembtn2,itembtn1) 
-                msg = bot.send_message(call.message.chat.id, 'Assalamu aleykum '+ call.message.from_user.first_name+'\n', reply_markup=markup)
+                msg = bot.send_message(call.message.chat.id, 'Kerakli bo'limni tanlang 👇', reply_markup=markup)
 
 
 
@@ -202,7 +202,7 @@ def print_all_commands(call):
             itembtn3=types.KeyboardButton('O нас')
     
             markup.add(itembtn2,itembtn3) 
-            msg = bot.send_message(call.message.chat.id, 'Привет '+ call.message.from_user.first_name+'\n Добро пожаловать в официальный бот IT CENTER', reply_markup=markup)
+            msg = bot.send_message(call.message.chat.id, 'Выберите нужный раздел 👇', reply_markup=markup)
 
             @bot.message_handler(func=lambda message: message.text == "O нас")
             def send_welcome(message):
