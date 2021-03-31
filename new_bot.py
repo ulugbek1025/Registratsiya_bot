@@ -38,7 +38,7 @@ def print_all_commands(call):
                 
     
                 markup.add(itembtn2,itembtn1) 
-                msg = bot.send_message(call.message.chat.id, 'Kerakli bo'limni tanlang 👇', reply_markup=markup)
+                msg = bot.send_message(call.message.chat.id, "Kerakli bo'limni tanlang 👇", reply_markup=markup)
 
 
 
