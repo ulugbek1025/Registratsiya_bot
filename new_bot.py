@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
 from string import Template
-bot=telebot.TeleBot('1798929012:AAECpRSEsUqv_A6DRJfdFMiwxGm6L0GAgz4')
+bot=telebot.TeleBot('#')
 user_dict = {}
 class User:
     def __init__(self,city):
